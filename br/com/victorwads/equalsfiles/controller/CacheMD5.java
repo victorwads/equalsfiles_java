@@ -14,6 +14,7 @@ import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 // </editor-fold>
 
 /**
@@ -89,7 +90,8 @@ public class CacheMD5 {
 	private static void validaBD() {
 		new Thread(() -> {
 			ArrayList<String> toDelete = new ArrayList<>();
-			for (Map.Entry<String, String> entry : MD5BD.entrySet()) {
+			Set<Map.Entry<String, String>> entrys = MD5BD.entrySet();
+			for (Map.Entry<String, String> entry : entrys) {
 				boolean exists = false;
 				try {
 					exists = new File(entry.getKey()).exists();
@@ -158,6 +160,9 @@ public class CacheMD5 {
 	}
 
 	public static MD5Cache listar() {
+		if (MD5BD == null) {
+			carregaBancoMD5();
+		}
 		return MD5BD;
 	}
 
