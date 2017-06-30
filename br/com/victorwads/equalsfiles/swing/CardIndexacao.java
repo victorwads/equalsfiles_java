@@ -48,7 +48,7 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 	private IconCheckBox[] checks;
 	private JFrame parentWindow = null;
 	private int parentWindowDefaultCloseOperation;
-	private WindowAdapter closingEvent = new WindowAdapter() {
+	private final WindowAdapter closingEvent = new WindowAdapter() {
 		@Override
 		public void windowClosing(WindowEvent we) {
 			if (suportTray) {
@@ -71,36 +71,6 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 		initComponents();
 	}
 
-	private void initGraphics() {
-		if (init) {
-			return;
-		}
-		init = true;
-		panelRoots.setLayout(new WrapLayout());
-		setResImage(btnReload, GetIcone.RELOAD);
-		setResImage(btnIniciar, GetIcone.PLAY);
-		barProgresso.setVisible(false);
-		init();
-
-		// <editor-fold defaultstate="collapsed" desc="Eventos">
-		InputMap inMap = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		inMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "RELOAD");
-		inMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.CTRL_DOWN_MASK), "INICIAR");
-		getActionMap().put("INICIAR", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent ae) {
-				iniciar();
-			}
-		});
-		getActionMap().put("RELOAD", new AbstractAction() {
-			@Override
-			public void actionPerformed(ActionEvent ae) {
-				loadRoots();
-			}
-		});
-		// </editor-fold>
-	}
-
 	// <editor-fold defaultstate="collapsed" desc="Methodos">
 	private void loadRoots() {
 		File[] roots = File.listRoots();
@@ -120,7 +90,7 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 		return threadIndexacao != null && threadIndexacao.isAlive();
 	}
 
-	public void setParent() {
+	private void setParent() {
 		if (parentWindow == null && isRunning()) {
 			parentWindow = getParentJFrame();
 			parentWindowDefaultCloseOperation = parentWindow.getDefaultCloseOperation();
@@ -129,14 +99,42 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 		}
 	}
 
-	private void init() {
-		if (!isRunning()) {
+	private void initGraphics() {
+		if (init) {
 			return;
 		}
+		init = true;
+		panelRoots.setLayout(new WrapLayout());
+		setResImage(btnReload, GetIcone.RELOAD);
+		// <editor-fold defaultstate="collapsed" desc="Eventos">
+		InputMap inMap = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		inMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "RELOAD");
+		inMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.CTRL_DOWN_MASK), "INICIAR");
+		getActionMap().put("INICIAR", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				iniciar();
+			}
+		});
+		getActionMap().put("RELOAD", new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				loadRoots();
+			}
+		});
+		// </editor-fold>
+		if (isRunning()) {
+			init();
+		} else {
+			setResImage(btnIniciar, GetIcone.PLAY);
+			barProgresso.setVisible(false);
+		}
+	}
+
+	private void init() {
 		setResImage(btnIniciar, GetIcone.PARAR);
 		btnIniciar.setText("Parar");
 		barProgresso.setVisible(true);
-		setParent();
 		if (objectIndexacao != null) {
 			objectIndexacao.setView(this);
 		}
@@ -145,6 +143,7 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 	public void iniciar() {
 		if (isRunning()) {
 			objectIndexacao.stop();
+			btnIniciar.setEnabled(false);
 			return;
 		}
 		int count = 0;
@@ -169,6 +168,7 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
 		objectIndexacao = new Indexacao(this, diretorios);
 		threadIndexacao = new Thread(objectIndexacao);
 		threadIndexacao.start();
+		setParent();
 	}
 
 	@Override
@@ -328,6 +328,11 @@ public class CardIndexacao extends Card implements IndexacaoInterface {
     private void btnReload(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReload
 		loadRoots();
     }//GEN-LAST:event_btnReload
+
+	@Override
+	public void cardHide(ComponentEvent evt) {
+		setParent();
+	}
 
 	@Override
 	public void cardShow(ComponentEvent evt) {

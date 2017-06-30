@@ -42,16 +42,14 @@ public final class WindowPrincipal extends Janela {
 			ONE = this;
 			initComponents();
 			CardPerfil cardPerfil = new CardPerfil();
-			CardIndexacao cardIndexacao = new CardIndexacao();
 			CardComparacao cardComparacao = new CardComparacao();
 			addPanel(cardComparacao, CARD_COMPARACAO);
 			addPanel(cardPerfil, null);
 			addPanel(new CardPerfils(cardComparacao, cardPerfil), CARD_PERFILS);
 			addPanel(new CardRelatorios(), CARD_RESULTADOS);
-			addPanel(cardIndexacao, CARD_INDEXACAO);
+			addPanel(new CardIndexacao(), CARD_INDEXACAO);
 			addPanel(new CardHistorico(), CARD_HISTORICO);
 			showPanel(CARD_COMPARACAO);
-			cardIndexacao.setParent();
 			// <editor-fold defaultstate="collapsed" desc="Icones">
 			//setResImage(menuArquivo, Icone.Arq);
 			setResImage(menuIniciar, GetIcone.COMPARAR);
