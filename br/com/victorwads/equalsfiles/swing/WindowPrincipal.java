@@ -409,6 +409,15 @@ public final class WindowPrincipal extends Janela {
 				+ "<center>2017</center><br />"
 				+ "Autor: Victor Cleber Laureano<br />"
 				+ "Version: " + Build.getVersion() + "." + Build.getBuildNumber()
+				+ "<br /><br />"
+				+ "<b>Java Native Access</b> - <a href=https://github.com/java-native-access/jna>github.com/java-native-access/jna</a><br />"
+				+ "Esta biblioteca é licenciada sob a LGPL, versão 2.1 or superior<br />"
+				+ "<br />"
+				+ "<b>ShellLink</b> - <a href=https://github.com/BlackOverlord666/mslinks>github.com/BlackOverlord666/mslinks</a><br />"
+				+ "Licenciada sob a WTFPL<br />"
+				+ "<br />"
+				+ "<b>Equals Files</b> - <a href=https://github.com/victorwads/equalsfiles>github.com/victorwads/equalsfiles</a><br />"
+				+ "Licenciada sob a LGPL, versão 3.0 or superior"
 				+ "</html>"
 		);
     }//GEN-LAST:event_menuSobre
