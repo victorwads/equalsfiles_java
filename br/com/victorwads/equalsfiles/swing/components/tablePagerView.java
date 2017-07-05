@@ -37,7 +37,7 @@ public class tablePagerView extends javax.swing.JPanel {
 		initComponents();
 		setResImage(brnPrimeira, GetIcone.PRIMEIRA);
 		setResImage(btnAnterior, GetIcone.ANTERIOR);
-		setResImage(btnProxíma, GetIcone.PROXIMA);
+		setResImage(btnProxima, GetIcone.PROXIMA);
 		setResImage(btnUltima, GetIcone.ULTIMA);
 
 	}
@@ -91,7 +91,7 @@ public class tablePagerView extends javax.swing.JPanel {
         txtTotalPaginas = new javax.swing.JFormattedTextField();
         javax.swing.JLabel lblTotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JFormattedTextField();
-        btnProxíma = new javax.swing.JButton();
+        btnProxima = new javax.swing.JButton();
         btnUltima = new javax.swing.JButton();
 
         setOpaque(false);
@@ -156,12 +156,12 @@ public class tablePagerView extends javax.swing.JPanel {
         txtTotal.setPreferredSize(new java.awt.Dimension(50, 20));
         add(txtTotal);
 
-        btnProxíma.addActionListener(new java.awt.event.ActionListener() {
+        btnProxima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proxima(evt);
             }
         });
-        add(btnProxíma);
+        add(btnProxima);
 
         btnUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +195,7 @@ public class tablePagerView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnPrimeira;
     private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnProxíma;
+    private javax.swing.JButton btnProxima;
     private javax.swing.JButton btnUltima;
     private javax.swing.JFormattedTextField txtPagina;
     private javax.swing.JFormattedTextField txtTotal;

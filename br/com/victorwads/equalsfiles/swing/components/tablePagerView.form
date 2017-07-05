@@ -110,7 +110,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnProx&#xed;ma">
+    <Component class="javax.swing.JButton" name="btnProxima">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proxima"/>
       </Events>
@@ -319,11 +319,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="15_btnProx&#xed;ma">
-          <CodeVariable name="btnProx&#xed;ma" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="15_btnProxima">
+          <CodeVariable name="btnProxima" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="btnProx&#xed;ma"/>
+              <ComponentRef name="btnProxima"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
