@@ -25,6 +25,7 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
+// </editor-fold>
 
 /**
  *
@@ -94,9 +95,8 @@ public class CheckBoxTree extends JTree implements Accessible {
 
 		@Override
 		public String toString() {
-			return super.getUserObject().toString();
+			return "";
 		}
-
 	}
 
 	private class Renderer extends DefaultTreeCellRenderer implements TreeCellRenderer {
@@ -184,7 +184,6 @@ public class CheckBoxTree extends JTree implements Accessible {
 					toggleCheckBoxPath(lastFocusedPath);
 				}
 			}
-
 		});
 	}
 
