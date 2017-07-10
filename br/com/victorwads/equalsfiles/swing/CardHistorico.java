@@ -93,8 +93,9 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 	private Thread loadingThread;
 	private Timer timer = null;
 	private Tipo tipo = null;
-	private ArquivoHistorico[] data;
+	private ArquivoHistorico[] registros;
 	private String pesquisa = "";
+	private long lastUpdate = 0;
 
 	/**
 	 * Creates new form cardHistorico
@@ -154,22 +155,25 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 		// </editor-fold>
 	}
 
-	private void clean() {
-		if (timer != null) {
-			timer.cancel();
-		}
-		timer = null;
+	private void cleanAll() {
 		if (loadingThread != null && loadingThread.isAlive()) {
 			loadingThread.stop();
 		}
+		cleanData();
+	}
+
+	private void cleanData() {
+		if (timer != null) {
+			timer.cancel();
+			timer = null;
+		}
 		loadingThread = null;
-		data = null;
+		registros = null;
 		tableModel.clear();
 		System.gc();
 	}
 
 	private void loadData() {
-		clean();
 		timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
@@ -179,11 +183,8 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 			}
 		}, 500);
 		loadingThread = new Thread(() -> {
-			data = Indexacao.listarHistorico(txtData1.getDate(), txtData2.getDate(), tipo, txtPesquisa.getText());
-			if (timer != null) {
-				timer.cancel();
-			}
-			timer = null;
+			cleanData();
+			registros = Indexacao.listarHistorico(txtData1.getDate(), txtData2.getDate(), tipo, txtPesquisa.getText());
 			table.setEnabled(true);
 			loading.setVisible(false);
 			listar();
@@ -192,7 +193,7 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 	}
 
 	private void listar() {
-		tableModel.addAll(data);
+		tableModel.addAll(registros);
 		table.setModel(tableModel);
 	}
 	// </editor-fold>
@@ -336,8 +337,10 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 
 	@Override
 	public void changeState(int threadRunning, int threadQueueTotal, int threadTotal) {
-		if (threadQueueTotal == 0 && isVisible() && tableModel.getPagina() == 1) {
+		long now = new Date().getTime();
+		if (threadQueueTotal == 0 && isVisible() && tableModel.getPagina() == 1 && now > (lastUpdate + 2000)) {
 			loadData();
+			lastUpdate = now;
 		}
 	}
 
@@ -354,7 +357,7 @@ public class CardHistorico extends Card implements ChangeListener, ThreadListLis
 
 	@Override
 	public void cardHide(ComponentEvent evt) {
-		clean();
+		cleanAll();
 	}
 	// </editor-fold>
 	// <editor-fold defaultstate="collapsed" desc="Variáveis">

@@ -73,7 +73,6 @@ public class tablePagerView extends javax.swing.JPanel {
 	public void setModel(MyTableModel tableModel) {
 		this.tableModel = tableModel;
 		if (tableModel != null) {
-			tableModel.setItensPorPagina(1000);
 			tableModel.addTableModelListener((TableModelEvent tme) -> {
 				attView();
 			});

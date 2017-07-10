@@ -92,10 +92,6 @@ public class Indexacao implements Runnable, Duracao.Listenner, ThreadListListenn
 	}
 	// </editor-fold>
 
-	public static void addListenner(ThreadListListenner listenner) {
-		threads.addListenner(listenner);
-	}
-
 	private final boolean ignoreFirstSearch;
 	private final static ThreadList threads = new ThreadList();
 	private final String FullFileName;
@@ -312,6 +308,10 @@ public class Indexacao implements Runnable, Duracao.Listenner, ThreadListListenn
 
 	public static ArquivoHistorico[] listarHistorico(Date min, Date max, Tipo tipo, String pesquisa) {
 		return new IndexHistorico().listar(min, max, tipo, pesquisa);
+	}
+
+	public static void addListenner(ThreadListListenner listenner) {
+		threads.addListenner(listenner);
 	}
 
 	// </editor-fold>
