@@ -56,7 +56,7 @@ public class CardResultado extends Card {
 		 * @param tamanho human readable total sum duplicates files sizes
 		 * @param quantidade amount of duplicate files
 		 */
-		public void setDuplicates(long tamanho, String quantidade);
+		public void setDuplicates(long tamanho, int quantidade);
 
 		public void setCmbExtencoes(DefaultComboBoxModel<String> model);
 	}
@@ -243,7 +243,8 @@ public class CardResultado extends Card {
 	private void listar() {
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
 
-		long totalToFree = 0, quantidade = 0;
+		long totalToFree = 0;
+		int quantidade = 0;
 		for (String key : ordem) {
 			ArrayList<Arquivo> arquivos = resultado.get(key);
 			if (arquivos == null) {
@@ -271,7 +272,7 @@ public class CardResultado extends Card {
 		btnRemover.setVisible(true);
 
 		if (view != null) {
-			view.setDuplicates(totalToFree, Long.toString(quantidade));
+			view.setDuplicates(totalToFree, quantidade);
 		}
 	}
 
@@ -292,7 +293,6 @@ public class CardResultado extends Card {
 		if (!toTrash && !Dialogos.pergunta("Realmente deseja mandar estes itens Para o Espaço Sideral!?")) {
 			return;
 		}
-		;
 		btnPermitir.setEnabled(false);
 		btnCancelar.setEnabled(false);
 		digRemover.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -573,7 +573,7 @@ public class CardResultado extends Card {
 		}
 	}
 	//</editor-fold	>
-// <editor-fold defaultstate="collapsed" desc="Variáveis">
+	// <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.victorwads.equalsfiles.swing.components.CheckBoxTree arvore;
     private javax.swing.JScrollPane arvoreScroll;

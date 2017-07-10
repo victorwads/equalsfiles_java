@@ -153,12 +153,6 @@ public class WindowProcesso extends Janela implements ProcessaInterface, CardRes
 	}
 
 	@Override
-	public void setDuplicates(long tamanho, String quantidade) {
-		txtDuplicatas.setText(quantidade);
-		txtTamanhoDuplicatas.setText(humamSize(tamanho));
-	}
-
-	@Override
 	public void setCmbExtencoes(DefaultComboBoxModel<String> model) {
 		cmbExtencoes.setModel(model);
 		if (model.getSize() > 2) {

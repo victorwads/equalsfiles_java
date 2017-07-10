@@ -89,7 +89,6 @@ public class Conexao {
 		}
 		innited = true;
 		tryTable("CacheMD5", "caminho, md5", TABLE_CACHE_MD5);
-		tryTable("Index", "caminho, size", TABLE_INDEXACAO);
 		tryTable("Relatorios", "id, nomeSensitive, arquivos, arquivosTamanho, duracao, data", TABLE_RELATORIO);
 		tryTable("ResultadosDiretorios", "idResultado, caminho", TABLE_RESULTADO_DIRETORIOS);
 		tryTable("ResultadosArquivos", "idResultado, diretorio, nome, tamanho, md5", TABLE_RESULTADO_ARQUIVOS);
