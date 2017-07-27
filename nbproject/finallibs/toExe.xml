@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>..\..\dist\EqualsFiles_Win64.jar</jar>
+  <outfile>..\..\dist\EqualsFiles_Win64.exe</outfile>
+  <errTitle>Você precisa do Java 8 Instalado em seu computador</errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>true</stayAlive>
+  <restartOnCrash>true</restartOnCrash>
+  <manifest></manifest>
+  <icon>icon\icon.ico</icon>
+  <singleInstance>
+    <mutexName>equalsfilesapp</mutexName>
+    <windowTitle>Equals Files</windowTitle>
+  </singleInstance>
+  <jre>
+    <path>C:\Program Files\Java\jre1.8.0_131</path>
+    <bundledJre64Bit>true</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64</runtimeBits>
+  </jre>
+</launch4jConfig>

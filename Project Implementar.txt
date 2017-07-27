@@ -1,0 +1,68 @@
+[A Fazer]
+	-- Core
+		Comentar todo JavaDocs
+		Listar temas disponìveis
+	--Indexação
+		Salvar diminiur duplicações de registros;
+	-- Relatórios
+		-- Histório de Arquivos
+			-- Melhorar atualização automática com intervalo minimo de tempo.
+			-- Limpar
+				Por Intervalo de Tempo
+				Por Pesquisa
+				Por Tipo
+		-- Resultado
+			Identificar Pastas Iguais
+	-- Comparação
+		Mais opções de Comparação, como por exemplo, coparar somente os arquivos do diretório x com o y (não compara Y com y, nem x com x);
+----------------------------------------------------------------------------------------------
+[Feitos]
+	-- Indexar
+		Wach arquivos em tempo real;
+	-- Perfis
+		Cadastro de Diretórios Preferidos -> Perfil de TRabalho
+		Listagem de Perfis
+		Load de Perfil
+		Deletar Perfil
+	-- Relatórios
+		Cadastro de Resultados
+		Consulta de Relatórios
+		Excluir Relatório
+		Filtrar por data
+		-- Resultado
+			Escolha de arquivos para exclusão com check box na arvore
+			Range Slider - for Big Files
+			Modo de Pouca memoria sem Icones e HTML (HTML RETIRADO)
+			Excluir arquivos duplicados
+			Remover da memoria arquivos que não existem mais
+		-- Histórico de Arquivos
+			Registrar Mudanças
+			Pesquisar por nome
+	-- Core
+		Paginação de tabelas
+		Speed Up Cache Insert
+			Threads Inteligentes que juntam carga para inserção e delete
+		Atalhos de Teclado
+		Selecionar arquivos com janela
+		Tirar Processamento de model.Arquivo -> controller.Processa
+		Implementar Interface e Refazer orientação a Objeto
+		Separar processamento em outra classe - Separar execução em outra Janela
+		Corrigir Entry Set Fail
+		Excluir cache de arquivos inexistentes na inicialização do programa
+		Gerenciador de Threads (Uma lista q executa uma de cada vez)
+		Inserção de Cache em Thread
+		Implementar SQLLite
+		Compactar libs em um unico arquivo jar
+		Fechar janelas com ESC
+	-- Comparação
+		Opção de Checar Nomes
+		Tempo decorrido
+		Botão Parar Comparação
+	-- Ferramentas
+		Thread Viwer
+		Limpar Cache
+		Mudar Aparencia
+		Carregar Cache de Arquivo texto
+			Fix Loop Code
+		Salvar Cache em arquivo texto
+			Fix Loop Code
