@@ -1,0 +1,15 @@
+<project name="MyProject" default="init" basedir=".">
+    <description>
+        simple example increment build variable
+    </description>
+  <!-- set global properties for this build -->
+  <target name="init">
+    <buildnumber/>
+    <replaceregexp file="src/br/com/victorwads/equalsfiles/Build.java"
+               match="public\s+static\s+final\s+String\s+BUILD_NUMBER\s+=\s+&quot;.*&quot;;"
+               replace="public static final String BUILD_NUMBER = &quot;${build.number}&quot;;"
+               byline="true"
+    />
+
+  </target>
+</project>

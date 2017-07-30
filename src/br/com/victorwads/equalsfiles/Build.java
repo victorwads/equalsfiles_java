@@ -13,29 +13,23 @@ import java.util.ResourceBundle;
  */
 public final class Build {
 
-	private static final String getProperty(String prop) {
-		try {
-			ResourceBundle rb = ResourceBundle.getBundle(Build.class.getCanonicalName());
-			return rb.getString(prop);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "";
-		}
-	}
+	public static final String BUILD_NUMBER = "131";
+	public static final String NAME = "Equals Files";
+	public static final String VERSION = "2.5";
 
 	public static final int getBuildNumber() {
 		try {
-			return Integer.parseInt(getProperty("BUILD"));
+			return Integer.parseInt(BUILD_NUMBER);
 		} catch (Exception e) {
 		}
 		return 0;
 	}
 
 	public static final String getName() {
-		return getProperty("NAME");
+		return NAME;
 	}
 
 	public static final String getVersion() {
-		return getProperty("VERSION");
+		return VERSION;
 	}
 }
