@@ -255,13 +255,6 @@ public class WindowProcesso extends Janela implements ProcessaInterface, CardRes
 		//======== resultPane ========
 		{
 
-			// JFormDesigner evaluation mark
-			resultPane.setBorder(new javax.swing.border.CompoundBorder(
-				new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-					"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-					javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-					java.awt.Color.red), resultPane.getBorder())); resultPane.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
 			resultPane.setLayout(new CardLayout());
 
 			//======== jPanel1 ========
