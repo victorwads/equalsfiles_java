@@ -19,10 +19,10 @@
     <windowTitle>Equals Files</windowTitle>
   </singleInstance>
   <jre>
-    <path>C:\Program Files\Java\jre1.8.0_131</path>
-    <bundledJre64Bit>true</bundledJre64Bit>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
     <bundledJreAsFallback>false</bundledJreAsFallback>
-    <minVersion></minVersion>
+    <minVersion>1.8.0</minVersion>
     <maxVersion></maxVersion>
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64</runtimeBits>
